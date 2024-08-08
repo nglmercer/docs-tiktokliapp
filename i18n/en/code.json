@@ -1,0 +1,29 @@
+{
+  "documentación y Inicio [Tutorial]": {
+    "message": "documentation and Home [Tutorial]"
+  },
+  "Click Descargar el programa": {
+    "message": "click to download program"
+  },
+  "Tiktok GiftNames recursos e imagenes utilizados para Comandos Y alertas en Lives": {
+    "message": "Tiktok GiftNames resources and images used for Commands AND alerts on Lives"
+  },
+  "Tiktos-Twichi-LiveApp": {
+    "message": "Tiktos-Twichi-LiveApp [En building]..."
+  },
+  "Documentacion y tutoriales sobre Tiktok y Twitch Interactivo": {
+    "message": "Documentation and tutorials on Tiktok and Twitch Interactive"
+  },
+  "theme.admonition.danger": {
+    "message": "danger",
+    "description": "The default label used for the Danger admonition (:::danger)"
+  },
+  "theme.admonition.info": {
+    "message": "info",
+    "description": "The default label used for the Info admonition (:::info)"
+  },
+  "theme.admonition.caution": {
+    "message": "attention",
+    "description": "The default label used for the Caution admonition (:::caution)"
+  }
+}

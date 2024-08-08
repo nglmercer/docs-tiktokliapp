@@ -1,0 +1,91 @@
+---
+sidebar_position: 4
+---
+# Minecraft Archivado
+:::danger[Take care]
+Version Antigua Muestras de desarrollo antiguos que ya no se utilizan
+:::
+La version que fue primero y de donde esta basado
+## Instalación y Configuración Inicial
+Descargue la version ...link... del codigo publicado
+
+Instale Node.js: Descargue e instale Node.js.
+
+Instale Dependencias:
+
+Ejecute install.bat para instalar las dependencias una vez, o ejecute el comando npm install en el CMD.
+
+Puede revisar que utilizaba localhost para recibir los datos para procesarlo
+
+## Modifique la Configuración:
+
+Modifique los siguientes valores según sus preferencias o necesidades en el archivo index.js:
+```
+// CONFIGURACION POR DEFECTO PUEDE TESTEAR
+const keyplayerName = 'melser'; // Nombre del jugador de Minecraft
+const keyBOT = 'melsernglBOT'; // Nombre del BOT de Minecraft para dar OP
+const keySERVER = '127.0.0.1'; // IP del servidor
+const keySERVERPORT = '25565'; // Puerto del servidor
+
+
+// Nombre de usuario único en TikTok
+let tiktokUsername = "agraviadit02"; // Modifique su nombre de usuario TikTok
+Recuerde ajustar keyplayerName, keyBOT, keySERVER, keySERVERPORT y tiktokUsername según sus necesidades.
+```
+
+## Iniciar el Programa:
+Cada vez que necesite usar el programa, inicie start.bat o ejecute node index.js en la terminal.
+Modificación de Regalos
+Si desea modificar los regalos en CommandList.json, puede verificar la configuración por defecto y agregar o editar los regalos según sea necesario.
+
+Los regalos se organizan por nombre y puede solicitar ayuda a ChatGPT con los comandos del archivo JSON.
+
+
+## Yaml o json
+primeramente era un json de comandos despues fue cambiando a Yaml a su sintaxis mas facil de usar 
+
+## Codigo que se utilizaba
+para manejar los anteriores eventos en minecraft live ya no necesario
+```
+  app1.post('/api/receive1', (req, res) => {
+    const { eventType, data } = req.body;
+  
+    switch (eventType) {
+      case 'chat':
+        setTimeout(() => {
+        console.log(`${data.uniqueId} : ${data.comment}`);
+        sendChatMessage(`${data.uniqueId} : ${data.comment}`);
+        }, 500); // antes de enviar el comando
+        break;
+      case 'gift':
+        if (data.giftType === 1 && !data.repeatEnd) {
+          console.log(`${data.uniqueId} envio ${data.giftName} x${data.repeatCount}`);
+          setTimeout(() => {
+            sendChatMessage(`${data.uniqueId} envio ${data.giftName} x${data.repeatCount}`);
+          }, 500);
+          } else if (data.repeatEnd) {
+            console.log(`${data.uniqueId} envio ${data.giftName} x${data.repeatCount}`);
+              // Streak ended or non-streakable gift => process the gift with final repeat_count
+              sendChatMessage(`${data.uniqueId} envio ${data.giftName} x${data.repeatCount}`);
+            }
+        break;
+      case 'social':
+        if (data.displayType.includes('follow')) {
+          console.log(`${data.uniqueId} te sigue`);
+          sendChatMessage(`${data.uniqueId} te sigue`);
+        }
+        if (data.displayType.includes('share')) {
+          console.log(`${data.uniqueId} ha compartido`);
+          sendChatMessage(`${data.uniqueId} ha compartido`);
+        }
+        break;
+      case 'streamEnd':
+        sendChatMessage('Fin de la transmisión en vivo');
+        break;
+      default:
+        console.log(`Evento desconocido: ${eventType}`);
+    }
+  
+    res.json({ message: 'Datos recibidos receive1' });
+  });
+```
